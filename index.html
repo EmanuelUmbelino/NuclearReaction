@@ -21,19 +21,23 @@
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <script>
 
-	var draw = (function() {
-			manager.draw();
-	});
+	var draw = function() 
+	{
+		manager.draw();
+	}
 
-	var update = (function(){
-			manager.update();
-	});
+	var update = function()
+	{
+		manager.update();
+		mouse.click = false;
+	}
 
-	var loop = (function() {
-			draw();
-			update();
-			setTimeout(loop, 30);
-	});
+	var loop = function() 
+	{
+		draw();
+		update();
+		setTimeout(loop, 30);
+	}
 
 	loop();
 
