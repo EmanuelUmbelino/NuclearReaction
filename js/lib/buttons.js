@@ -1,4 +1,4 @@
-var Buttons = (function(){
+var Buttons = function(){
 
 	this.x = 400;
 	
@@ -32,31 +32,22 @@ var Buttons = (function(){
     this.creditsWidth = 230;
     this.creditsHeight = 50;
 
-  this.draw = (function() {
+	this.draw = function() 
+	{
+		graphics.drawText(this.x, this.playY, "70px", "Play", "Green");
+		graphics.drawText(this.x, this.directionY, "70px", "Instructions", "Green");
+		graphics.drawText(this.x, this.creditsY, "70px", "Credits", "Green");
 
-    //graphics.drawStrokeRect(this.playX, this.playPivotY, this.playWidth, this.playHeight, "BLACK");
-    //graphics.drawStrokeRect(this.directionX, this.directionPivotY, this.directionWidth, this.directionHeight, "BLACK");
-    //graphics.drawStrokeRect(this.creditsX, this.creditsPivotY, this.creditsWidth, this.creditsHeight, "BLACK");
-
-      graphics.drawText(this.x, this.playY, "70px", "Play", "Green");
-      graphics.drawText(this.x, this.directionY, "70px", "Instructions", "Green");
-      graphics.drawText(this.x, this.creditsY, "70px", "Credits", "Green");
-	  
-	
-		
-
-      if(mouse.x > this.x - this.playWidth/2 && mouse.y > this.playPivotY && mouse.x < this.x + this.playWidth/2 && mouse.y < this.playPivotY + this.playHeight)
-      { graphics.drawCicle(this.x - this.playWidth/2 - 20, this.playPivotY + 30,10, "GREEN") 
+		if(mouse.x > this.x - this.playWidth/2 && mouse.y > this.playPivotY && mouse.x < this.x + this.playWidth/2 && mouse.y < this.playPivotY + this.playHeight)
+		{ graphics.drawCicle(this.x - this.playWidth/2 - 20, this.playPivotY + 30,10, "GREEN") 
 		if(mouse.click) { fade.active = true; fade.path = "levelSelection";}}
 
-      if(mouse.x > this.x - this.directionWidth/2 && mouse.y > this.directionPivotY && mouse.x < this.x + this.directionWidth/2 && mouse.y < this.directionPivotY + this.creditsHeight)
-      { graphics.drawCicle(this.x - this.directionWidth/2 - 20, this.directionPivotY + 30,10, "GREEN"); if(mouse.click) { fade.active = true; fade.path = "directions";} }
+		if(mouse.x > this.x - this.directionWidth/2 && mouse.y > this.directionPivotY && mouse.x < this.x + this.directionWidth/2 && mouse.y < this.directionPivotY + this.creditsHeight)
+		{ graphics.drawCicle(this.x - this.directionWidth/2 - 20, this.directionPivotY + 30,10, "GREEN"); if(mouse.click) { fade.active = true; fade.path = "directions";} }
 
-      if(mouse.x > this.x - this.creditsWidth/2 && mouse.y > this.creditsPivotY && mouse.x < this.x + this.creditsWidth/2 && mouse.y < this.creditsPivotY + this.creditsHeight)
-      { graphics.drawCicle(this.x - this.creditsWidth/2 - 20, this.creditsPivotY + 30,10, "GREEN") }
-
-  });
-
-});
+		if(mouse.x > this.x - this.creditsWidth/2 && mouse.y > this.creditsPivotY && mouse.x < this.x + this.creditsWidth/2 && mouse.y < this.creditsPivotY + this.creditsHeight)
+		{ graphics.drawCicle(this.x - this.creditsWidth/2 - 20, this.creditsPivotY + 30,10, "GREEN") }
+	}
+}
 
 var buttons = new Buttons();

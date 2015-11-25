@@ -1,4 +1,4 @@
-var Graphics = (function()
+var Graphics = function()
 {
 	this.canvas = document.getElementById("myCanvas");
 	this.ctx = this.canvas.getContext("2d");
@@ -12,34 +12,38 @@ var Graphics = (function()
 		this.ctx.fillStyle = "black";
 	}
 
-	this.drawText = (function(x, y, fontsize, text , color){
+	this.drawText = function(x, y, fontsize, text , color)
+	{
 		this.ctx.font = fontsize + " Comic Sans MS";
 		this.ctx.fillStyle = color;
 		this.ctx.fillText(text,x,y);
 		this.ctx.textAlign = "center";
-	});
+	}
 
-	this.drawLine = (function(x , y , x2, y2){
-			this.ctx.beginPath();
-      this.ctx.moveTo(x, y);
-      this.ctx.lineTo(x2, y2);
-			this.ctx.strokeStyle = "#bbbbbb"
-      this.ctx.stroke();
-	});
+	this.drawLine = function(x , y , x2, y2)
+	{
+		this.ctx.beginPath();
+		this.ctx.moveTo(x, y);
+		this.ctx.lineTo(x2, y2);
+		this.ctx.strokeStyle = "#bbbbbb"
+		this.ctx.stroke();
+	}
 
-	this.drawCicle = (function(x, y, r, color) {
+	this.drawCicle = function(x, y, r, color) 
+	{
 		graphics.ctx.beginPath();
 		graphics.ctx.arc(x, y, r, 0, 2 * Math.PI, false);
 		graphics.ctx.fillStyle = color;
 		graphics.ctx.fill();
-	});
+	}
 
-	this.drawGirth = (function(x, y, r, color) {
+	this.drawGirth = function(x, y, r, color) 
+	{
 		graphics.ctx.beginPath();
 		graphics.ctx.arc(x, y, r, 0, 2 * Math.PI, false);
 		graphics.ctx.strokeStyle = color;
 		graphics.ctx.stroke();
-	});
+	}
 
 	this.drawRect = function(x,y,w,h,color)
 	{
@@ -66,6 +70,6 @@ var Graphics = (function()
 	{
 		graphics.ctx.restore();
 	}
-});
+}
 
 var graphics = new Graphics();

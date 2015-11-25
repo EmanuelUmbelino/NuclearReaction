@@ -1,31 +1,31 @@
-var Background = (function(){
+var Background = function()
+{
+	this.move = function()
+	{
+		if(keyboard.arrowLeft)
+		{ console.log("Left"); }
 
-  this.move = (function(){
+		if(keyboard.arrowRight)
+		{ console.log("Left"); }
 
-    if(keyboard.arrowLeft)
-    { console.log("Left"); }
+		if(keyboard.arrowUp)
+		{ console.log("Up"); }
 
-    if(keyboard.arrowRight)
-    { console.log("Left"); }
+		if(keyboard.arrowDown)
+		{ console.log("Down"); }
+	}
 
-    if(keyboard.arrowUp)
-    { console.log("Up"); }
+	this.update = function()
+	{
+		this.move();
+	}
 
-    if(keyboard.arrowDown)
-    { console.log("Down"); }
-  });
-
-  this.update = (function(){
-    this.move();
-  });
-
-  this.draw = (function() {
-    for(var i = 0; i <= 50; i++)
-    {
-       graphics.drawLine(0 , i * 12 , 800, i * 12);
-       graphics.drawLine(i * 16, 0 , i * 16, 600);
-    }
-  });
-
-});
+	this.draw = function() {
+		for(var i = 0; i <= 50; i++)
+		{
+			graphics.drawLine(0 , i * 12 , 800, i * 12);
+			graphics.drawLine(i * 16, 0 , i * 16, 600);
+		}
+	}
+}
 var background = new Background();
