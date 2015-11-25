@@ -1,6 +1,7 @@
 var Scene = function()
 {
-	this.type = "menu"
+	this.type = "menu";
+	this.begin = false;
 
 	this.update = function() 
 	{
@@ -14,6 +15,8 @@ var Scene = function()
 			atom.update();
 			sound.update();
 			neutrinoRain.update();
+			if(this.begin)
+			{time.update();}
 		}
 	}
 

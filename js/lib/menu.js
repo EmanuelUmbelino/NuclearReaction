@@ -3,6 +3,7 @@ var Menu = function()
 	this.menuAlpha = 1.0;
 	this.directionsAlpha = 0.0;
 	this.levelSelectionAlpha = 0.0;
+	this.gameAlph = 0.0;
 
 	this.atom = new Atom("lithium", "Menu");
 	this.atom.x = 200;
@@ -72,6 +73,27 @@ var Menu = function()
 				fade.active = false;
 			}
 		}
+		
+		if(fade.active && fade.path === "game")
+		{
+			this.levelSelectionAlpha -= 0.05;
+			
+			if(this.levelSelectionAlpha <= 0)
+			{
+				this.levelSelectionAlpha = 0;
+				this.gameAlph += 0.05;
+			}
+
+			if(this.gameAlph  >= 1 && fade.active)
+			{
+				this.gameAlph = 1;
+				fade.active = false;
+				scene.begin = true;
+				time.restartTime();
+				neutrinoRain.restart();
+				scene.type = "gameplay";
+			}
+		}
 	}
 
 	this.update = function() 
@@ -122,7 +144,7 @@ var Menu = function()
 			graphics.drawCicle(buttons.x - buttons.easyWidth/2 - 20, buttons.easyPivotY + 30,10, "GREEN") 
 			if(mouse.click) 
 			{ 
-				fade.active = true; scene.type = "gameplay";
+				fade.active = true; fade.path = "game";
 			} 
 			atom.name = "hydrogen";atom.size = 42.5;
 		}
@@ -131,7 +153,7 @@ var Menu = function()
 			graphics.drawCicle(buttons.x - buttons.meadiumWidth/2 - 20, buttons.meadiumPivotY + 30,10, "GREEN") 
 			if(mouse.click) 
 			{ 
-				fade.active = true; scene.type = "gameplay";
+				fade.active = true; fade.path = "game";
 			}
 			atom.name = "helium";atom.size = 55;
 		}
@@ -140,7 +162,7 @@ var Menu = function()
 			graphics.drawCicle(buttons.x - buttons.hardWidth/2 - 20, buttons.hardPivotY + 30,10, "GREEN") 
 			if(mouse.click) 
 			{ 
-				fade.active = true; scene.type = "gameplay";
+				fade.active = true; fade.path = "game";
 			}
 			atom.name = "lithium";atom.size = 75;
 		}

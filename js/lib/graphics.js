@@ -12,12 +12,13 @@ var Graphics = function()
 		this.ctx.fillStyle = "black";
 	}
 
-	this.drawText = function(x, y, fontsize, text , color)
+	this.drawText = function(x, y, fontsize, text , color, align)
 	{
 		this.ctx.font = fontsize + " Comic Sans MS";
 		this.ctx.fillStyle = color;
 		this.ctx.fillText(text,x,y);
-		this.ctx.textAlign = "center";
+		if(align==null){this.ctx.textAlign = "center";}
+		else{this.ctx.textAlign = align;}
 	}
 
 	this.drawLine = function(x , y , x2, y2)

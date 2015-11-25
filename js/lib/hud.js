@@ -1,6 +1,6 @@
 var Hud = function() 
 {
-	this.score = 1;
+	this.score = 0;
 
 	this.update = function() 
 	{
