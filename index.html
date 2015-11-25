@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<body bgcolor="#ffffff" >
+<canvas id="myCanvas" width="800" height="600" style="border:1px solid #000000"/>
+<meta charset="utf-8" />
+<script src="js/jquery/jquery-1.11.3.min.js"></script>
+<script src="js/lib/manager.js"></script>
+<script src="js/lib/keyboard.js"></script>
+<script src="js/lib/mouse.js"></script>
+<script src="js/lib/graphics.js"></script>
+<script src="js/lib/atom.js"></script>
+<script src="js/lib/sound.js"></script>
+<script src="js/lib/neutrinoRain.js"></script>
+<script src="js/lib/scene.js"></script>
+<script src="js/lib/background.js"></script>
+<script src="js/lib/hud.js"></script>
+<script src="js/lib/menu.js"></script>
+<script src="js/lib/buttons.js"></script>
+<script src="js/lib/fade.js"></script>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<script>
+
+	var draw = (function() {
+			manager.draw();
+	});
+
+	var update = (function(){
+			manager.update();
+	});
+
+	var loop = (function() {
+			draw();
+			update();
+			setTimeout(loop, 30);
+	});
+
+	loop();
+
+</script>
+</body>
+</html>
